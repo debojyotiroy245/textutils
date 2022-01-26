@@ -62,7 +62,7 @@ export default function TextForm(props) {
   return (
     <>
         <div className='container my-3' style={textColor}>
-            <h1>{props.heading}</h1>
+            <h2>{props.heading}</h2>
             <div className="mb-3">
                 <textarea className="form-control" id="textBox" rows="8" value={text} onChange={handleOnChange} placeholder='Enter text here' style={textarea}></textarea>
             </div>
@@ -74,10 +74,10 @@ export default function TextForm(props) {
             {/* <button className="btn btn-danger mx-1" onClick={handleMode} style={mode}>{btn} Mode</button> */}
         </div>
         <div className="container my-2" style={textColor}>
-            <h2>Your text summary</h2>
+            <h3>Your text summary</h3>
             <p>{text.replace(/(^\s*)|(\s*$)/gi,"").split(' ').length} words and {text.length} characters</p>
             <p>{0.008 * text.split(' ').length} minutes read</p>
-            <h2>Preview</h2>
+            <h3>Preview</h3>
             <p>{text?text:'Enter text in the textarea above to preview'}</p>
         </div>
     </>

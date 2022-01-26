@@ -45,16 +45,16 @@ function App() {
       //   <TextForm showAlert={showAlert} heading="Try Textutils - word counter, character counter, remove extra spaces" mode={mode} />
       // </>
 
-
-      <Router>
-        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
-        <Alert alert={alert} />
-        <Routes>
-            <Route exact path="/about" element={<About mode={mode}/>}></Route>
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try Textutils - word counter, character counter, remove extra spaces" mode={mode} />}></Route>
-        </Routes>
-      </Router>
-      
+      <>
+        <Router>
+          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
+          <Alert alert={alert} />
+          <Routes>
+              <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try Textutils - word counter, character counter, remove extra spaces" mode={mode} />}></Route>
+              <Route exact path="/about" element={<About mode={mode}/>}></Route>
+          </Routes>
+        </Router>
+      </>
   );
 }
 

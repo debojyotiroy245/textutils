@@ -1,12 +1,15 @@
 import React from 'react';
 
 function Alert(props) {
+  const capitalize=(word)=>{
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  }
   return (
-    <div className="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{props.alert}</strong>
-        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+        <strong>{capitalize(props.alert.type)}</strong>: {props.alert.message}
+        {/* <button type="bu}tton" className="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
-        </button>
+        </button> */}
     </div>
   );
 }

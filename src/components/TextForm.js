@@ -2,15 +2,20 @@ import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 
 export default function TextForm(props) {
-
+    const alert=(message,type)=>{
+        props.showAlert(message,type)
+    }
     const handleUpClick = ()=>{
         setText(text.toUpperCase())
+        alert("Converted to uppercase!","success")
     }
     const handleLoClick = ()=>{
         setText(text.toLowerCase())
+        alert("Converted to lowercase!","success")
     }
     const handleClearClick = ()=>{
         setText('')
+        alert("Text cleared!","success")
     }
     const handleOnChange = (event)=>{
         setText(event.target.value)
@@ -19,10 +24,12 @@ export default function TextForm(props) {
         let text=document.getElementById('textBox')
         text.select()
         navigator.clipboard.writeText(text.value)
+        alert("Copied to clipboard!","success")
     }
     const handleRES=()=>{
         let newText = text.split(/[ ]+/)
         setText(newText.join(' '))
+        alert("Extra spaces removed!","success")
     }
     const [text,setText]=useState('')
     
@@ -68,10 +75,10 @@ export default function TextForm(props) {
         </div>
         <div className="container my-2" style={textColor}>
             <h2>Your text summary</h2>
-            <p>{text.split(' ').length} words and {text.length} characters</p>
+            <p>{text.replace(/(^\s*)|(\s*$)/gi,"").split(' ').length} words and {text.length} characters</p>
             <p>{0.008 * text.split(' ').length} minutes read</p>
             <h2>Preview</h2>
-            <p>{text}</p>
+            <p>{text?text:'Enter text in the textarea above to preview'}</p>
         </div>
     </>
 );
